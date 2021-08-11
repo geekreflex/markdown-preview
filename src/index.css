@@ -1,17 +1,59 @@
-@import url("https://fonts.googleapis.com/css2?family=Lato&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap");
 
 * {
   box-sizing: border-box;
 }
 
+:root {
+  --text-color-dark: rgba(0, 0, 0, 0.75);
+  --text-color-light: rgba(0, 0, 0, 0.4);
+}
+
+html,
+body {
+  line-height: 1.67;
+  overflow: hidden;
+}
+
+dl,
+ol,
+p,
+pre,
+ul {
+  margin: 1.2em 0px;
+}
+
 body {
   margin: 0;
-  font-family: "Lato";
+  font-family: "Poppins";
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  color: var(--text-color-dark);
+  /* tab-size: 4; */
 }
 
 /* global styles goes here */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 600;
+  color: #333;
+}
+
+blockquote {
+  border-left: 5px solid var(--text-color-light);
+  padding-left: 1.5em;
+  color: var(--text-color-light);
+}
+
+code {
+  padding: 2px 4px;
+  background-color: #bbb;
+  border-radius: 3px;
+}
 
 /* global styles goes here */
 
@@ -59,7 +101,6 @@ body {
 }
 
 .pane {
-  background-color: #999;
   height: 100%;
   width: calc(50% - 5px);
   min-width: 100px;
@@ -73,7 +114,6 @@ body {
 .preview-pane {
   background-color: #f2f2f2;
   padding: 0 20px;
-  line-height: 1.5;
 }
 
 .resizer {
@@ -92,5 +132,4 @@ body {
 
 .code-mirror-wrapper {
   height: 100%;
-  background-color: red;
 }
