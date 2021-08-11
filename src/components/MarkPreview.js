@@ -1,9 +1,15 @@
 import React from "react";
+import marked from "marked";
 
-const MarkPreview = () => {
+const MarkPreview = ({ markdown }) => {
+  const markedText = marked(markdown);
+
   return (
-    <div>
-      <h1>Markdown Preview</h1>
+    <div className="pane preview-pane">
+      <div
+        className="output"
+        dangerouslySetInnerHTML={{ __html: markedText }}
+      ></div>
     </div>
   );
 };

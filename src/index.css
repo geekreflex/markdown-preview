@@ -1,9 +1,96 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato&display=swap");
+
+* {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
+  font-family: "Lato";
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  height: 3000px;
+}
+
+/* global styles goes here */
+
+/* global styles goes here */
+
+/* header styles goes here */
+.hdMain {
+  width: 100%;
+  background-color: #181818;
+  height: 40px;
+}
+
+.hdWrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* header styles ends here */
+
+/* footer styles goes here */
+.ftMain {
+  width: 100%;
+  background-color: #181818;
+  height: 20px;
+}
+.ftWrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+/* footer styles ends here */
+
+.panel {
+  display: flex;
+  width: 100%;
+  height: calc(100vh - 60px);
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+
+.sidenav {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 50px;
+}
+
+.pane {
+  background-color: #999;
+  height: 100%;
+  width: calc(50% - 5px);
+  min-width: 100px;
+  overflow-y: auto;
+}
+
+.editor-pane {
+  background-color: #999;
+}
+
+.preview-pane {
+  background-color: #f2f2f2;
+  padding: 0 20px;
+  line-height: 1.5;
+}
+
+.resizer {
+  width: 10px !important;
+  height: 100%;
+  background-color: #333;
+  cursor: col-resize;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.CodeMirror {
+  height: 100% !important;
+}
+
+.code-mirror-wrapper {
+  height: 100%;
+  background-color: red;
 }
