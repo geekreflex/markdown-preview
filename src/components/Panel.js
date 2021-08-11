@@ -1,30 +1,40 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import MarkEditor from "./MarkEditor";
 import MarkPreview from "./MarkPreview";
 import { splitPane } from "../helper/splitPane";
+import { autoScroll } from "../helper/autoScroll";
 import useLocalStorage from "../hooks/useLocalStorage";
 
 const Panel = () => {
   const [markdown, setMarkdown] = useLocalStorage("markdown", "");
 
-  useEffect(() => {
-    const resizer = document.querySelector(".resizer");
-    const markEditor = document.querySelector(".editor-pane");
-    const markPreview = document.querySelector(".preview-pane");
+  const editorPane = useRef(null);
+  const previewPane = useRef(null);
+  const resizer = useRef(null);
 
-    splitPane(resizer, "H", markEditor, markPreview);
+  useEffect(() => {
+    console.log(editorPane, previewPane);
+    autoScroll(editorPane.current, previewPane.current);
+  });
+
+  useEffect(() => {
+    splitPane(resizer.current, "H", editorPane.current, previewPane.current);
 
     window.addEventListener("resize", () => {
-      markEditor.style.width = "100%";
-      markPreview.style.width = "100%";
+      editorPane.style.width = "100%";
+      previewPane.style.width = "100%";
     });
   }, []);
 
   return (
     <div className="panel">
-      <MarkEditor markdown={markdown} setMarkdown={setMarkdown} />
-      <div className="resizer"></div>
-      <MarkPreview markdown={markdown} />
+      <MarkEditor
+        editorPane={editorPane}
+        markdown={markdown}
+        setMarkdown={setMarkdown}
+      />
+      <div className="resizer" ref={resizer}></div>
+      <MarkPreview previewPane={previewPane} markdown={markdown} />
     </div>
   );
 };
