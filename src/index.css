@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap");
+/* @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap");
 
 * {
   box-sizing: border-box;
@@ -8,19 +8,9 @@
   --text-color-dark: rgba(0, 0, 0, 0.75);
   --text-color-light: rgba(0, 0, 0, 0.4);
 }
-
-html,
-body {
-  line-height: 1.67;
+body,
+html {
   overflow: hidden;
-}
-
-dl,
-ol,
-p,
-pre,
-ul {
-  margin: 1.2em 0px;
 }
 
 body {
@@ -29,35 +19,8 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: var(--text-color-dark);
-  /* tab-size: 4; */
 }
 
-/* global styles goes here */
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-weight: 600;
-  color: #333;
-}
-
-blockquote {
-  border-left: 5px solid var(--text-color-light);
-  padding-left: 1.5em;
-  color: var(--text-color-light);
-}
-
-code {
-  padding: 2px 4px;
-  background-color: #bbb;
-  border-radius: 3px;
-}
-
-/* global styles goes here */
-
-/* header styles goes here */
 .hdMain {
   width: 100%;
   background-color: #181818;
@@ -70,9 +33,6 @@ code {
   align-items: center;
 }
 
-/* header styles ends here */
-
-/* footer styles goes here */
 .ftMain {
   width: 100%;
   background-color: #181818;
@@ -83,7 +43,7 @@ code {
   justify-content: space-between;
   align-items: center;
 }
-/* footer styles ends here */
+
 
 .panel {
   display: flex;
@@ -111,6 +71,10 @@ code {
   background-color: #999;
 }
 
+.editor-pane-inner {
+  height: 100%;
+}
+
 .preview-pane {
   background-color: #f2f2f2;
   padding: 0 20px;
@@ -132,4 +96,4 @@ code {
 
 .code-mirror-wrapper {
   height: 100%;
-}
+} */

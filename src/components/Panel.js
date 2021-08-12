@@ -2,7 +2,6 @@ import React, { useEffect, useRef } from "react";
 import MarkEditor from "./MarkEditor";
 import MarkPreview from "./MarkPreview";
 import { splitPane } from "../helper/splitPane";
-import { autoScroll } from "../helper/autoScroll";
 import useLocalStorage from "../hooks/useLocalStorage";
 
 const Panel = () => {
@@ -13,16 +12,11 @@ const Panel = () => {
   const resizer = useRef(null);
 
   useEffect(() => {
-    console.log(editorPane, previewPane);
-    autoScroll(editorPane.current, previewPane.current);
-  });
-
-  useEffect(() => {
     splitPane(resizer.current, "H", editorPane.current, previewPane.current);
 
     window.addEventListener("resize", () => {
-      editorPane.style.width = "100%";
-      previewPane.style.width = "100%";
+      editorPane.style.width = "50%";
+      previewPane.style.width = "50%";
     });
   }, []);
 
