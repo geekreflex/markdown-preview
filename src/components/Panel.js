@@ -39,6 +39,7 @@ const Panel = ({ themeName }) => {
 };
 
 const PanelMain = styled.div`
+  position: relative;
   display: flex;
   width: 100%;
   height: calc(100vh - 60px);

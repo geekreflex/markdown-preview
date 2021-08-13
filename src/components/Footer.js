@@ -1,15 +1,18 @@
 import React from "react";
 import styled from "styled-components";
 import LineCol from "./LineCol";
+import { useSelector } from "react-redux";
 
 const Footer = () => {
+  const len = useSelector((state) => state.mark.editor.length);
+
   return (
-    <Wrapper className="ftMain">
-      <Container className="ftWrap">
-        <div className="ftLeft">footer left</div>
-        <div className="ftRight">
-          <LineCol />
+    <Wrapper>
+      <Container>
+        <div>
+          Characters: <span>{len}</span>
         </div>
+        <LineCol />
       </Container>
     </Wrapper>
   );

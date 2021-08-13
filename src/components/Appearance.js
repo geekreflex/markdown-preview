@@ -12,15 +12,10 @@ const Appearance = ({ setter }) => {
 };
 
 const Wrapper = styled.div`
-  display: none;
-  background: ${({ theme }) => theme.colors.fade};
-  position: fixed;
-  bottom: 0;
-  left: 200px;
-  z-index: 1000;
-  border: 1px solid ${({ theme }) => theme.colors.border};
-  border-radius: 6px;
+  border-top: 1px solid ${({ theme }) => theme.colors.border};
+  border-bottom: 1px solid ${({ theme }) => theme.colors.border};
   padding: 20px;
+  width: 500px;
 `;
 
 export default Appearance;

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "codemirror/lib/codemirror.css";
 import "codemirror/theme/material-palenight.css";
 import "codemirror/theme/eclipse.css";
@@ -6,14 +6,16 @@ import "codemirror/mode/markdown/markdown";
 import styled from "styled-components";
 import { getFromLS } from "../utils/storage";
 import { useDispatch } from "react-redux";
-import { editorCursorPos, editorSelLen } from "../redux/markSlice";
-
+import { editorCursorPos, editorSelLen, charLength } from "../redux/markSlice";
+import Expand from "./Expand";
 import { Controlled as ControlledEditor } from "react-codemirror2";
 
 const MarkEditor = ({ markdown, setMarkdown, editorPane }) => {
   const dispatch = useDispatch();
   const handleChange = (editor, data, value) => {
     setMarkdown(value);
+    dispatch(charLength(value.trim().length));
+    console.log(editor);
   };
 
   const handleCursor = (editor, data) => {
@@ -37,9 +39,11 @@ const MarkEditor = ({ markdown, setMarkdown, editorPane }) => {
   const t = getFromLS("theme");
 
   return (
-    <Wrapper className="pane editor-pane" ref={editorPane}>
+    <Wrapper ref={editorPane}>
+      <Expand />
       <Container className="editor-pane-inner">
         <ControlledEditor
+          className="code-mirror-editor"
           onBeforeChange={handleChange}
           cursor={{ line: 5, ch: 10 }}
           selection={{
@@ -67,6 +71,7 @@ const MarkEditor = ({ markdown, setMarkdown, editorPane }) => {
 };
 
 const Wrapper = styled.div`
+  position: relative;
   height: 100%;
   width: calc(50% - 5px);
   min-width: 100px;
@@ -75,6 +80,9 @@ const Wrapper = styled.div`
 
 const Container = styled.div`
   height: 100%;
+  .code-mirror-editor {
+    height: 100% !important;
+  }
 `;
 
 export default MarkEditor;

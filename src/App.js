@@ -8,7 +8,7 @@ import WebFont from "webfontloader";
 import { useTheme } from "./theme/useTheme";
 
 import "./index.css";
-import Appearance from "./components/Appearance";
+import Settings from "./components/Settings";
 
 const Container = styled.div``;
 
@@ -34,7 +34,7 @@ function App() {
         <ThemeProvider theme={selectedTheme}>
           <GlobalStyles />
           <Container style={{ fontFamily: selectedTheme.font }}>
-            <Appearance setter={setSelectedTheme} />
+            <Settings setter={setSelectedTheme} />
             <Header />
             <Panel themeName={theme} />
             <Footer />

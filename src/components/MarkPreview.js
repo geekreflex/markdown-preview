@@ -1,27 +1,31 @@
 import React from "react";
 import marked from "marked";
 import styled from "styled-components";
+import Expand from "./Expand";
 
 const MarkPreview = ({ markdown, previewPane }) => {
   const markedText = marked(markdown);
 
   return (
     <Wrapper className="pane preview preview-pane" ref={previewPane}>
+      <Expand />
       <Container dangerouslySetInnerHTML={{ __html: markedText }}></Container>
     </Wrapper>
   );
 };
 
 const Wrapper = styled.div`
+  position: relative;
   height: 100%;
   width: calc(50% - 5px);
   min-width: 100px;
-  overflow-y: auto;
-  padding: 0 20px;
   background: ${({ theme }) => theme.colors.primary};
 `;
 
 const Container = styled.div`
+  overflow-y: auto;
+  padding: 0 20px;
+  height: 100%;
   & img {
     margin: 0;
     border: 0;
@@ -122,6 +126,7 @@ const Container = styled.div`
   & pre code {
     background-color: transparent;
     border-width: 0;
+    white-space: pre-wrap;
   }
 
   & blockquote {
@@ -146,7 +151,7 @@ const Container = styled.div`
   }
 
   & th {
-    background-color: #f5f5f5;
+    background-color: transparent;
   }
 `;
 

@@ -4,13 +4,23 @@ import _ from "lodash";
 import { useTheme } from "../theme/useTheme";
 import { getFromLS } from "../utils/storage";
 
-const ThemedButton = styled.button`
+const Button = styled.button`
   cursor: pointer;
+  padding: 10px 20px;
+  margin-right: 5px;
+`;
+
+const ButtonWrap = styled.div`
+  display: flex;
 `;
 
 const Wrapper = styled.div``;
 
-const Container = styled.div``;
+const Container = styled.div`
+  border-top: 1px solid ${({ theme }) => theme.colors.border};
+  border-bottom: 1px solid ${({ theme }) => theme.colors.border};
+  padding: 10px 0;
+`;
 
 export default (props) => {
   const themesFromStore = getFromLS("all-themes");
@@ -39,23 +49,23 @@ export default (props) => {
 
   const ThemeCard = (props) => {
     return (
-      <Wrapper>
-        <ThemedButton onClick={() => themeSwitcher(props.theme)}>
-          {props.theme.name}
-        </ThemedButton>
-      </Wrapper>
+      <Button onClick={() => themeSwitcher(props.theme)}>
+        {props.theme.name}
+      </Button>
     );
   };
 
   return (
-    <div>
+    <Wrapper>
       <Container>
         <h3>Themes</h3>
-        {themes.length > 0 &&
-          themes.map((theme) => (
-            <ThemeCard theme={data[theme]} key={data[theme].id} />
-          ))}
+        <ButtonWrap>
+          {themes.length > 0 &&
+            themes.map((theme) => (
+              <ThemeCard theme={data[theme]} key={data[theme].id} />
+            ))}
+        </ButtonWrap>
       </Container>
-    </div>
+    </Wrapper>
   );
 };

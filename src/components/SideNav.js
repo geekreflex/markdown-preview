@@ -1,11 +1,15 @@
 import React from "react";
 import styled from "styled-components";
+import { useDispatch } from "react-redux";
+import { displaySettings } from "../redux/markSlice";
 
 import { IoSettingsOutline } from "react-icons/io5";
 
 const SideNav = () => {
+  const dispatch = useDispatch();
+
   const handleSettings = () => {
-    //
+    dispatch(displaySettings());
   };
 
   return (
@@ -40,10 +44,10 @@ const Container = styled.div`
     font-size: 25px;
     cursor: pointer;
     padding: 5px;
-    color: #999;
+    color: ${({ theme }) => theme.colors.icon.color1};
   }
   .icon:hover {
-    color: #fff;
+    color: ${({ theme }) => theme.colors.icon.color2};
   }
 `;
 

@@ -14,6 +14,11 @@
         "link": {
           "text": "00213d",
           "opacity": 1
+        },
+        "icon": {
+          "color1": "#555",
+          "color2": "#181818",
+          "color3": "#ddd"
         }
       },
       "font": "Lato"
@@ -34,6 +39,11 @@
           "active": "cyan",
           "visited": "#lightblue",
           "opacity": 0.8
+        },
+        "icon": {
+          "color1": "#999",
+          "color2": "#fff",
+          "color3": "#888"
         }
       },
       "font": "Ubuntu"
