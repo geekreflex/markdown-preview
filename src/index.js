@@ -6,6 +6,9 @@ import store from "./redux/store";
 import { Provider } from "react-redux";
 import * as themes from "./theme/schema.json";
 import { setToLS } from "./utils/storage";
+import { getMarkdownFromStorage } from "./redux/markSlice";
+
+store.dispatch(getMarkdownFromStorage());
 
 const Index = () => {
   setToLS("all-themes", themes.default);

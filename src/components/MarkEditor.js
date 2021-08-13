@@ -6,16 +6,24 @@ import "codemirror/mode/markdown/markdown";
 import styled from "styled-components";
 import { getFromLS } from "../utils/storage";
 import { useDispatch } from "react-redux";
-import { editorCursorPos, editorSelLen, charLength } from "../redux/markSlice";
+import {
+  editorCursorPos,
+  editorSelLen,
+  getMarkdownFromStorage,
+} from "../redux/markSlice";
 import Expand from "./Expand";
 import { Controlled as ControlledEditor } from "react-codemirror2";
 
 const MarkEditor = ({ markdown, setMarkdown, editorPane }) => {
   const dispatch = useDispatch();
+
   const handleChange = (editor, data, value) => {
     setMarkdown(value);
-    dispatch(charLength(value.trim().length));
-    console.log(editor);
+  };
+
+  const editorChange = () => {
+    console.log(1);
+    dispatch(getMarkdownFromStorage());
   };
 
   const handleCursor = (editor, data) => {
@@ -24,7 +32,6 @@ const MarkEditor = ({ markdown, setMarkdown, editorPane }) => {
       line: pos.line,
       ch: pos.ch,
     };
-    // console.log(cursor);
     dispatch(editorCursorPos(cursor));
   };
 
@@ -45,6 +52,7 @@ const MarkEditor = ({ markdown, setMarkdown, editorPane }) => {
         <ControlledEditor
           className="code-mirror-editor"
           onBeforeChange={handleChange}
+          onKeyDown={editorChange}
           cursor={{ line: 5, ch: 10 }}
           selection={{
             ranges: [

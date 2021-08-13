@@ -1,9 +1,13 @@
 import { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
+import { getMarkdownFromStorage } from "../redux/markSlice";
 
-const PREFIX = "markdown-preview";
+const PREFIX = "markdown";
 
-const useLocalStorage = (key, initialValue) => {
-  const prefixedKey = PREFIX + key;
+const useLocalStorage = (initialValue) => {
+  const dispatch = useDispatch();
+
+  const prefixedKey = PREFIX;
 
   const [value, setValue] = useState(() => {
     const jsonValue = localStorage.getItem(prefixedKey);
@@ -18,6 +22,7 @@ const useLocalStorage = (key, initialValue) => {
 
   useEffect(() => {
     localStorage.setItem(prefixedKey, JSON.stringify(value));
+    dispatch(getMarkdownFromStorage());
   }, [prefixedKey, value]);
 
   return [value, setValue];

@@ -1,17 +1,13 @@
 import React from "react";
 import styled from "styled-components";
 import LineCol from "./LineCol";
-import { useSelector } from "react-redux";
+import CharWord from "./CharWord";
 
 const Footer = () => {
-  const len = useSelector((state) => state.mark.editor.length);
-
   return (
     <Wrapper>
       <Container>
-        <div>
-          Characters: <span>{len}</span>
-        </div>
+        <CharWord />
         <LineCol />
       </Container>
     </Wrapper>

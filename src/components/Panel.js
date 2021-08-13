@@ -8,7 +8,7 @@ import SideNav from "./SideNav";
 import { ScrollBarStyles } from "../theme/GlobalStyles";
 
 const Panel = ({ themeName }) => {
-  const [markdown, setMarkdown] = useLocalStorage("markdown", "");
+  const [markdown, setMarkdown] = useLocalStorage("");
 
   const editorPane = useRef(null);
   const previewPane = useRef(null);
