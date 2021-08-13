@@ -4,6 +4,7 @@ const initialState = {
   editor: {
     theme: null,
     len: 0,
+    cursorPos: {},
   },
   markdown: "",
   dispSet: false,

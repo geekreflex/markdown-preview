@@ -10,10 +10,10 @@ const LineCol = () => {
       {cursorPos && (
         <Container>
           <div>
-            Ln <span>{cursorPos.line + 1},</span>
+            Ln <span>{cursorPos.line + 1 || 0},</span>
           </div>
           <div>
-            Col <span>{cursorPos.ch + 1}</span>
+            Col <span>{cursorPos.ch + 1 || 0}</span>
           </div>
           {selLen > 0 && <div>({selLen} Selected)</div>}
         </Container>

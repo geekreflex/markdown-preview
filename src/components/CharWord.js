@@ -12,10 +12,10 @@ const CharWord = () => {
       {len && (
         <Container>
           <div>
-            Characters: <span>{charlen}</span>
+            Characters <span>{charlen}</span>
           </div>
           <div>
-            Words: <span>{wordlen}</span>
+            Words <span>{wordlen}</span>
           </div>
         </Container>
       )}

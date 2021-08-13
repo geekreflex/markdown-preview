@@ -19,10 +19,10 @@ const MarkEditor = ({ markdown, setMarkdown, editorPane }) => {
 
   const handleChange = (editor, data, value) => {
     setMarkdown(value);
+    console.log(editor);
   };
 
   const editorChange = () => {
-    console.log(1);
     dispatch(getMarkdownFromStorage());
   };
 

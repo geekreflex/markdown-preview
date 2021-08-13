@@ -1,21 +1,54 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { useDispatch } from "react-redux";
 import { displaySettings } from "../redux/markSlice";
 
-import { IoSettingsOutline } from "react-icons/io5";
+import { IoSettingsOutline, IoApertureOutline } from "react-icons/io5";
 
 const SideNav = () => {
   const dispatch = useDispatch();
+  const [fullscreen, setFullscreen] = useState(false);
 
   const handleSettings = () => {
     dispatch(displaySettings());
+    window.requestFullscreen();
+  };
+
+  const toggleFullscreen = () => {
+    const elem = document.documentElement;
+    if (fullscreen) {
+      setFullscreen(false);
+      if (document.exitFullscreen) {
+        document.exitFullscreen();
+      } else if (document.webkitExitFullscreen) {
+        /* Safari */
+        document.webkitExitFullscreen();
+      } else if (document.msExitFullscreen) {
+        /* IE11 */
+        document.msExitFullscreen();
+      }
+    } else {
+      setFullscreen(true);
+      if (elem.requestFullscreen) {
+        elem.requestFullscreen();
+      } else if (elem.webkitRequestFullscreen) {
+        /* Safari */
+        elem.webkitRequestFullscreen();
+      } else if (elem.msRequestFullscreen) {
+        /* IE11 */
+        elem.msRequestFullscreen();
+      }
+    }
   };
 
   return (
     <Wrapper>
       <Container>
-        <div className="">t</div>
+        <div className="">
+          <div className="icon" onClick={toggleFullscreen}>
+            <IoApertureOutline />
+          </div>
+        </div>
         <div className="">
           <div className="icon" onClick={handleSettings}>
             <IoSettingsOutline />
