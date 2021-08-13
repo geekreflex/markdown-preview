@@ -5,7 +5,6 @@ import { useTheme } from "../theme/useTheme";
 import { getFromLS } from "../utils/storage";
 
 const ThemedButton = styled.button`
-  font-size: 14px;
   cursor: pointer;
 `;
 
@@ -20,7 +19,6 @@ export default (props) => {
   const { setMode } = useTheme();
 
   const themeSwitcher = (selectedTheme) => {
-    console.log(selectedTheme);
     setMode(selectedTheme);
     props.setter(selectedTheme);
   };
@@ -52,6 +50,7 @@ export default (props) => {
   return (
     <div>
       <Container>
+        <h3>Themes</h3>
         {themes.length > 0 &&
           themes.map((theme) => (
             <ThemeCard theme={data[theme]} key={data[theme].id} />

@@ -14,7 +14,6 @@ const MarkEditor = ({ markdown, setMarkdown, editorPane }) => {
   };
 
   const t = getFromLS("theme");
-  console.log(t);
 
   return (
     <Wrapper className="pane editor-pane" ref={editorPane}>

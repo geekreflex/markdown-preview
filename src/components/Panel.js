@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import MarkEditor from "./MarkEditor";
 import MarkPreview from "./MarkPreview";
-// import { splitPane } from "../helper/splitPane";
+import { splitPane } from "../helper/splitPane";
 import useLocalStorage from "../hooks/useLocalStorage";
 import styled from "styled-components";
 import SideNav from "./SideNav";
@@ -15,11 +15,11 @@ const Panel = ({ themeName }) => {
   const resizer = useRef(null);
 
   useEffect(() => {
-    // splitPane(resizer.current, "H", editorPane.current, previewPane.current);
-    // window.addEventListener("resize", () => {
-    //   editorPane.style.width = "50%";
-    //   previewPane.style.width = "50%";
-    // });
+    splitPane(resizer.current, "H", editorPane.current, previewPane.current);
+    window.addEventListener("resize", () => {
+      editorPane.current.style.width = "50%";
+      previewPane.current.style.width = "50%";
+    });
   }, []);
 
   return (

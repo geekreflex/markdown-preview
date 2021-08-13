@@ -15,6 +15,7 @@ export const GlobalStyles = createGlobalStyle`
     font-family: ${({ theme }) => theme.font};
     transition: all 0.50s linear;
     margin: 0;
+    line-height: 1.67;
 
   }
 

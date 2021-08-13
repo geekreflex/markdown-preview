@@ -4,17 +4,15 @@
       "id": "T_001",
       "name": "Light",
       "colors": {
-        "primary": "#fff",
+        "primary": "#f1f1f1",
         "secondary": "#f6f8fa",
-        "fade": "#888",
+        "fade": "#ddd",
         "border": "#e1e4e8",
         "text": "#333",
-        "button": {
-          "text": "#fff",
-          "background": "#000"
-        },
+        "textbg": "#ddd",
+        "background": "#000",
         "link": {
-          "text": "teal",
+          "text": "00213d",
           "opacity": 1
         }
       },
@@ -29,12 +27,12 @@
         "fade": "#0d1117",
         "border": "#30363d",
         "text": "#ddd",
-        "button": {
-          "text": "#ffffff",
-          "background": "#0d47a1"
-        },
+        "textbg": "#292d3e",
+        "background": "#0d47a1",
         "link": {
-          "text": "#0d47a1",
+          "text": "#0366d6",
+          "active": "cyan",
+          "visited": "#lightblue",
           "opacity": 0.8
         }
       },
