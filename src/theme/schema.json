@@ -4,25 +4,31 @@
       "id": "T_001",
       "name": "Light",
       "colors": {
-        "body": "#FFFFFF",
-        "text": "#000000",
+        "primary": "#fff",
+        "secondary": "#f6f8fa",
+        "fade": "#888",
+        "border": "#e1e4e8",
+        "text": "#333",
         "button": {
-          "text": "#FFFFFF",
-          "background": "#000000"
+          "text": "#fff",
+          "background": "#000"
         },
         "link": {
           "text": "teal",
           "opacity": 1
         }
       },
-      "font": "Tinos"
+      "font": "Lato"
     },
-    "seaWave": {
+    "dark": {
       "id": "T_007",
-      "name": "Sea Wave",
+      "name": "Dark",
       "colors": {
-        "body": "#9be7ff",
-        "text": "#0d47a1",
+        "primary": "#090c10",
+        "secondary": "#161b22",
+        "fade": "#0d1117",
+        "border": "#30363d",
+        "text": "#ddd",
         "button": {
           "text": "#ffffff",
           "background": "#0d47a1"

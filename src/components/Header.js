@@ -1,14 +1,28 @@
 import React from "react";
+import styled from "styled-components";
 
 const Header = () => {
   return (
-    <div className="hdMain">
-      <div className="hdWrap">
+    <Wrapper className="hdMain">
+      <Container className="hdWrap">
         <div className="hdLeft">left stuffs</div>
         <div className="hdRight">right stuffs</div>
-      </div>
-    </div>
+      </Container>
+    </Wrapper>
   );
 };
+
+const Wrapper = styled.header`
+  width: 100%;
+  background: ${({ theme }) => theme.colors.secondary};
+  border-bottom: 1px solid ${({ theme }) => theme.colors.border};
+`;
+
+const Container = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 40px;
+`;
 
 export default Header;

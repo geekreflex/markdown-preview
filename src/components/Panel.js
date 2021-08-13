@@ -1,10 +1,13 @@
 import React, { useEffect, useRef } from "react";
 import MarkEditor from "./MarkEditor";
 import MarkPreview from "./MarkPreview";
-import { splitPane } from "../helper/splitPane";
+// import { splitPane } from "../helper/splitPane";
 import useLocalStorage from "../hooks/useLocalStorage";
+import styled from "styled-components";
+import SideNav from "./SideNav";
+import { ScrollBarStyles } from "../theme/GlobalStyles";
 
-const Panel = () => {
+const Panel = ({ themeName }) => {
   const [markdown, setMarkdown] = useLocalStorage("markdown", "");
 
   const editorPane = useRef(null);
@@ -12,25 +15,46 @@ const Panel = () => {
   const resizer = useRef(null);
 
   useEffect(() => {
-    splitPane(resizer.current, "H", editorPane.current, previewPane.current);
-
-    window.addEventListener("resize", () => {
-      editorPane.style.width = "50%";
-      previewPane.style.width = "50%";
-    });
+    // splitPane(resizer.current, "H", editorPane.current, previewPane.current);
+    // window.addEventListener("resize", () => {
+    //   editorPane.style.width = "50%";
+    //   previewPane.style.width = "50%";
+    // });
   }, []);
 
   return (
-    <div className="panel">
+    <PanelMain>
+      <ScrollBarStyles />
+      <SideNav />
       <MarkEditor
         editorPane={editorPane}
         markdown={markdown}
         setMarkdown={setMarkdown}
+        themeName={themeName}
       />
-      <div className="resizer" ref={resizer}></div>
+      <Resizer ref={resizer} />
       <MarkPreview previewPane={previewPane} markdown={markdown} />
-    </div>
+    </PanelMain>
   );
 };
+
+const PanelMain = styled.div`
+  display: flex;
+  width: 100%;
+  height: calc(100vh - 60px);
+  justify-content: space-between;
+  box-sizing: border-box;
+`;
+
+const Resizer = styled.div`
+  width: 10px !important;
+  height: 100%;
+  background: ${({ theme }) => theme.colors.secondary};
+  cursor: col-resize;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  box-shadow: inset 0 0 2px #000000;
+`;
 
 export default Panel;
