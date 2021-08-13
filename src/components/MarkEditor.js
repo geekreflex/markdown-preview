@@ -1,16 +1,37 @@
-import React, { useEffect } from "react";
+import React from "react";
 import "codemirror/lib/codemirror.css";
 import "codemirror/theme/material-palenight.css";
 import "codemirror/theme/eclipse.css";
 import "codemirror/mode/markdown/markdown";
 import styled from "styled-components";
 import { getFromLS } from "../utils/storage";
+import { useDispatch } from "react-redux";
+import { editorCursorPos, editorSelLen } from "../redux/markSlice";
 
 import { Controlled as ControlledEditor } from "react-codemirror2";
 
 const MarkEditor = ({ markdown, setMarkdown, editorPane }) => {
+  const dispatch = useDispatch();
   const handleChange = (editor, data, value) => {
     setMarkdown(value);
+  };
+
+  const handleCursor = (editor, data) => {
+    const pos = editor.getCursor();
+    let cursor = {
+      line: pos.line,
+      ch: pos.ch,
+    };
+    // console.log(cursor);
+    dispatch(editorCursorPos(cursor));
+  };
+
+  const handleSelection = (editor, data) => {
+    const sel = editor.getSelection();
+
+    let len = sel.length;
+    console.log(sel);
+    dispatch(editorSelLen(len));
   };
 
   const t = getFromLS("theme");
@@ -20,8 +41,19 @@ const MarkEditor = ({ markdown, setMarkdown, editorPane }) => {
       <Container className="editor-pane-inner">
         <ControlledEditor
           onBeforeChange={handleChange}
+          cursor={{ line: 5, ch: 10 }}
+          selection={{
+            ranges: [
+              {
+                anchor: { ch: 7, line: 15 },
+                head: { ch: 7, line: 15 },
+              },
+            ],
+            focus: true, // defaults false if not specified
+          }}
+          onCursor={handleCursor}
+          onSelection={handleSelection}
           value={markdown}
-          className="code-mirror-wrapper"
           options={{
             lineWrapping: true,
             mode: "markdown",

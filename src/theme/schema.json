@@ -4,7 +4,7 @@
       "id": "T_001",
       "name": "Light",
       "colors": {
-        "primary": "#f1f1f1",
+        "primary": "#ffffff",
         "secondary": "#f6f8fa",
         "fade": "#ddd",
         "border": "#e1e4e8",

@@ -20,6 +20,7 @@ const Wrapper = styled.header`
 
 const Container = styled.div`
   display: flex;
+  padding: 0 20px;
   justify-content: space-between;
   align-items: center;
   height: 40px;

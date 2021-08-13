@@ -1,12 +1,22 @@
 import React from "react";
 import styled from "styled-components";
 
+import { IoSettingsOutline } from "react-icons/io5";
+
 const SideNav = () => {
+  const handleSettings = () => {
+    //
+  };
+
   return (
     <Wrapper>
       <Container>
         <div className="">t</div>
-        <div className="">b</div>
+        <div className="">
+          <div className="icon" onClick={handleSettings}>
+            <IoSettingsOutline />
+          </div>
+        </div>
       </Container>
     </Wrapper>
   );
@@ -24,6 +34,17 @@ const Container = styled.div`
   justify-content: space-between;
   align-items: center;
   height: 100%;
+  padding: 20px 0;
+
+  .icon {
+    font-size: 25px;
+    cursor: pointer;
+    padding: 5px;
+    color: #999;
+  }
+  .icon:hover {
+    color: #fff;
+  }
 `;
 
 export default SideNav;

@@ -2,7 +2,8 @@ import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-
+import store from "./redux/store";
+import { Provider } from "react-redux";
 import * as themes from "./theme/schema.json";
 import { setToLS } from "./utils/storage";
 
@@ -13,7 +14,9 @@ const Index = () => {
 
 ReactDOM.render(
   <React.StrictMode>
-    <Index />
+    <Provider store={store}>
+      <Index />
+    </Provider>
   </React.StrictMode>,
   document.getElementById("root")
 );

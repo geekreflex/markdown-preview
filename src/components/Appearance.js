@@ -12,6 +12,7 @@ const Appearance = ({ setter }) => {
 };
 
 const Wrapper = styled.div`
+  display: none;
   background: ${({ theme }) => theme.colors.fade};
   position: fixed;
   bottom: 0;

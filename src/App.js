@@ -18,7 +18,7 @@ function App() {
 
   useEffect(() => {
     setSelectedTheme(theme);
-  }, [themeLoaded]);
+  }, [themeLoaded, theme]);
 
   useEffect(() => {
     WebFont.load({
@@ -26,7 +26,7 @@ function App() {
         families: getFonts(),
       },
     });
-  });
+  }, []);
 
   return (
     <>
