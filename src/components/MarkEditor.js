@@ -11,7 +11,6 @@ import {
   editorSelLen,
   getMarkdownFromStorage,
 } from "../redux/markSlice";
-import Expand from "./Expand";
 import { Controlled as ControlledEditor } from "react-codemirror2";
 
 const MarkEditor = ({ markdown, setMarkdown, editorPane }) => {
@@ -43,11 +42,10 @@ const MarkEditor = ({ markdown, setMarkdown, editorPane }) => {
     dispatch(editorSelLen(len));
   };
 
-  const t = getFromLS("theme");
+  const t = getFromLS("theme") || "eclipse";
 
   return (
     <Wrapper ref={editorPane}>
-      <Expand pane={editorPane} />
       <Container className="editor-pane-inner">
         <ControlledEditor
           className="code-mirror-editor"

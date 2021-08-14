@@ -1,14 +1,12 @@
 import React from "react";
 import marked from "marked";
 import styled from "styled-components";
-import Expand from "./Expand";
 
 const MarkPreview = ({ markdown, previewPane }) => {
   const markedText = marked(markdown);
 
   return (
     <Wrapper className="pane preview preview-pane" ref={previewPane}>
-      <Expand pane={previewPane} />
       <Container dangerouslySetInnerHTML={{ __html: markedText }}></Container>
     </Wrapper>
   );

@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { useDispatch } from "react-redux";
 import { displaySettings } from "../redux/markSlice";
 
-import { IoSettingsOutline, IoApertureOutline } from "react-icons/io5";
+import { IoSettingsOutline, IoExpandSharp } from "react-icons/io5";
 
 const SideNav = () => {
   const dispatch = useDispatch();
@@ -45,7 +45,7 @@ const SideNav = () => {
       <Container>
         <div className="">
           <div className="icon" onClick={toggleFullscreen}>
-            <IoApertureOutline />
+            <IoExpandSharp />
           </div>
         </div>
         <div className="">
