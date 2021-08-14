@@ -11,7 +11,6 @@ const SideNav = () => {
 
   const handleSettings = () => {
     dispatch(displaySettings());
-    window.requestFullscreen();
   };
 
   const toggleFullscreen = () => {

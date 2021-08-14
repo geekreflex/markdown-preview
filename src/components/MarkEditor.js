@@ -47,7 +47,7 @@ const MarkEditor = ({ markdown, setMarkdown, editorPane }) => {
 
   return (
     <Wrapper ref={editorPane}>
-      <Expand />
+      <Expand pane={editorPane} />
       <Container className="editor-pane-inner">
         <ControlledEditor
           className="code-mirror-editor"

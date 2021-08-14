@@ -1,10 +1,14 @@
-import React from "react";
+import React, { useRef } from "react";
 import { IoExpandSharp, IoContractSharp } from "react-icons/io5";
 import styled from "styled-components";
 
-const Expand = () => {
+const Expand = ({ pane }) => {
+  const handleExpand = () => {
+    //
+  };
+
   return (
-    <Icon>
+    <Icon onClick={handleExpand}>
       <IoExpandSharp />
     </Icon>
   );

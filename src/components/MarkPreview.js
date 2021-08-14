@@ -8,7 +8,7 @@ const MarkPreview = ({ markdown, previewPane }) => {
 
   return (
     <Wrapper className="pane preview preview-pane" ref={previewPane}>
-      <Expand />
+      <Expand pane={previewPane} />
       <Container dangerouslySetInnerHTML={{ __html: markedText }}></Container>
     </Wrapper>
   );
@@ -116,11 +116,11 @@ const Container = styled.div`
 
   & pre {
     font-family: "Menlo", monospace;
-    background-color: ${({ theme }) => theme.colors.m};
+    background-color: ${({ theme }) => theme.colors.secondary};
     padding: 0.5em;
     line-height: 1.25em;
-    border: 1px solid #efefef;
-    border-bottom: 1px solid #ddd;
+    // border: 1px solid #efefef;
+    // border-bottom: 1px solid #ddd;
   }
 
   & pre code {
