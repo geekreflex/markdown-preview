@@ -21,6 +21,7 @@ export const GlobalStyles = createGlobalStyle`
 
   .CodeMirror {
     height: 100% !important;
+    // overflow-y: auto;
   }
 `;
 
